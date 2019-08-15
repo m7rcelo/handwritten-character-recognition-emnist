@@ -1,7 +1,7 @@
 # Handwritten Character Recognition - EMNIST
 
 ## Description
-This project was built to identify handwritten characters on single character images using a Convolutional Neural Network (CNN) trained on the EMINIST dataset with data augmentation.
+This project was built to identify handwritten characters on single character images. It uses a Convolutional Neural Network (CNN) trained on the EMINIST dataset with data augmentation and achieves 90% accuracy for the multiclass classification.
 
 ## Usage
 
