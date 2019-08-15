@@ -21,13 +21,14 @@ mapper = pickle.load(open(path+'/mapper.p', 'rb'))
 model = load_model(path+'/character_recognition_model.h5')
 
 for f in os.listdir(img_path):
-    img = imread(os.path.join(img_path,f), mode='L')
-    img = np.invert(img)
-    img = imresize(img,(28, 28))
-    img = img.reshape(1,28,28,1)
-    img = img.astype('float32')
-    img = img / 255
-
-    predictions = model.predict(img)
-    
-    print(f+":", chr(mapper[(int(np.argmax(predictions, axis=1)[0]))]))
+    try:
+        img = imread(os.path.join(img_path,f), mode='L')
+        img = np.invert(img)
+        img = imresize(img,(28, 28))
+        img = img.reshape(1,28,28,1)
+        img = img.astype('float32')
+        img = img / 255
+        predictions = model.predict(img)
+        print(f+":", chr(mapper[(int(np.argmax(predictions, axis=1)[0]))]))
+    except(OSError):
+        print('Files in the target folder must be images.')
