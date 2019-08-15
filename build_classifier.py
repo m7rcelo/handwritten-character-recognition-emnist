@@ -19,7 +19,7 @@ warnings.filterwarnings("ignore")
 
 path = os.path.dirname(os.path.realpath(__file__))
 
-mat = loadmat(path+'/data/emnist-balanced.mat')
+mat = loadmat(path+'/data/emnist-byclass.mat')
 
 mapper = {kv[0]:kv[1:][0] for kv in mat['dataset'][0][0][2]}
 pickle.dump(mapper, open('mapper.p', 'wb' ))
